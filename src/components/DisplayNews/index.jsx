@@ -39,7 +39,7 @@ export const DisplayNews = ({ description, createdAt, picturePath, videoPath }) 
     // const handleDeletePost = async (userId) => {
     //     if( userId === profile._id){
     //     try {
-    //       await axios.delete(`http://localhost:5000/${entityType}/${postId}`);
+    //       await axios.delete(`http://34.229.93.25:5000/${entityType}/${postId}`);
     //       onDeletePost(postId); 
     //     } catch (error) {
     //       console.error('Error deleting post:', error);

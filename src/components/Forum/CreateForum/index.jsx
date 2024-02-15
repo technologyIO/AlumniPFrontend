@@ -35,7 +35,7 @@ const CreateForum = () => {
     }
     console.log('body',body)
       // Make a POST request to the backend API
-      const response = await axios.post('http://localhost:5000/forums/createForum', body);
+      const response = await axios.post('http://34.229.93.25:5000/forums/createForum', body);
       
 
       // Check the response status or handle success as needed

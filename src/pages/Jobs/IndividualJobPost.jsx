@@ -30,7 +30,7 @@ const IndividualJobPost = () => {
     };
     const profile = useSelector((state) => state.profile);
     const fetchDonationPost = async () => {
-        const response = await axios.get(`http://localhost:5000/${title}/${_id}`)
+        const response = await axios.get(`http://34.229.93.25:5000/${title}/${_id}`)
         const data = response.data;
         setJobs(data);
         setLoading(false)
@@ -41,7 +41,7 @@ const IndividualJobPost = () => {
         admin = true;
     }
     const fetchAppliedUserIds = async () => {
-        const response = await axios.get(`http://localhost:5000/${title}/appliedCandidates/${_id}`)
+        const response = await axios.get(`http://34.229.93.25:5000/${title}/appliedCandidates/${_id}`)
         const data = response.data;
         setAppliedCandidates(data.userIds);
         setAppliedCandidatesDetails(data.appliedCandidates);
@@ -68,7 +68,7 @@ const IndividualJobPost = () => {
         };
 
         const handleSubmit = () => {
-            const apiUrl = `http://localhost:5000/jobs/apply/${_id}`;
+            const apiUrl = `http://34.229.93.25:5000/jobs/apply/${_id}`;
             const formData = new FormData();
             formData.append('userId', profile._id);
             formData.append('name', name);
@@ -144,7 +144,7 @@ const IndividualJobPost = () => {
                     <p style={{ fontWeight: '500' }}>Name: </p><p>{candidate.name}</p>
                 </div>
                 <div style={{ display: 'flex', gap: '1vw' }}>
-                    <p style={{ fontWeight: '500' }}>Resume: </p><a href={`http://localhost:5000/uploads/${candidate.resume}`} target="_blank" rel="noopener noreferrer">{candidate.resume}</a>
+                    <p style={{ fontWeight: '500' }}>Resume: </p><a href={`http://34.229.93.25:5000/uploads/${candidate.resume}`} target="_blank" rel="noopener noreferrer">{candidate.resume}</a>
                 </div>
                 <div style={{ display: 'flex', gap: '1vw' }}>
                     <p style={{ fontWeight: '500' }}>Applied At: </p> <p>{formatCreatedAt(candidate.appliedAt)}</p>
@@ -190,7 +190,7 @@ const IndividualJobPost = () => {
                                         return (
                                             <img
                                                 key={index}
-                                                src={`http://localhost:5000/uploads/${attachment}`}
+                                                src={`http://34.229.93.25:5000/uploads/${attachment}`}
                                                 alt=""
                                                 className="src"
                                             />
@@ -264,7 +264,7 @@ const IndividualJobPost = () => {
                                             return (
                                                 <a
                                                     key={index}
-                                                    href={`http://localhost:5000/uploads/${attachment}`}
+                                                    href={`http://34.229.93.25:5000/uploads/${attachment}`}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                     style={{ display: 'block', marginBottom: '10px' }}

@@ -19,7 +19,7 @@ const LeftSidebar = () => {
     useEffect(() => {
         const fetchMembers = async () => {
             try {
-                const response = await fetch('http://localhost:5000/alumni/all');
+                const response = await fetch('http://34.229.93.25:5000/alumni/all');
                 if (response.ok) {
                     const membersData = await response.json();
                     console.log('members data',membersData)

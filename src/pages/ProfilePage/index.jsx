@@ -85,7 +85,7 @@ const ProfilePage = () => {
 
       let body = JSON.stringify(updatedForms);
 
-      fetch(`http://localhost:5000/alumni/workExperience/${profile._id}`, {
+      fetch(`http://34.229.93.25:5000/alumni/workExperience/${profile._id}`, {
         method: 'PUT',
         body,
         headers: {
@@ -305,7 +305,7 @@ const ProfilePage = () => {
   }
   const fetchWorkExperiences = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/alumni/workExperience/${profile._id}`, {
+      const response = await fetch(`http://34.229.93.25:5000/alumni/workExperience/${profile._id}`, {
         headers: {
           'Authorization': `Bearer ${cookie.token}`
         }

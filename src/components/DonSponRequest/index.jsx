@@ -46,7 +46,7 @@ const DonSponRequest = ({ name, edit }) => {
         console.log('body',body)
         if (!edit) {
             try {
-                const response = await axios.post(`http://localhost:5000/${name}s/create`, 
+                const response = await axios.post(`http://34.229.93.25:5000/${name}s/create`, 
                  body,
                     {
                         "Content-Type": "application/json"
@@ -70,7 +70,7 @@ const DonSponRequest = ({ name, edit }) => {
         }
         else{
         try {
-            const response = await axios.put(`http://localhost:5000/${name}s/${_id}`,
+            const response = await axios.put(`http://34.229.93.25:5000/${name}s/${_id}`,
             body,
                 {
                     "Content-Type": "application/json"

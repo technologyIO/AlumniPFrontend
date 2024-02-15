@@ -115,7 +115,7 @@ const JobsInt = ({modalShow: propModalShow,onHideModal,popover }) => {
     
         const handlePublish = async () => {
           try {
-            const response = await fetch(`http://localhost:5000/${title}/create`, {
+            const response = await fetch(`http://34.229.93.25:5000/${title}/create`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',

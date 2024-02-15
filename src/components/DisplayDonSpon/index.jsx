@@ -33,7 +33,7 @@ const DisplayDonSpon = ({ donations, name, updateDonations, totalDonations, page
 
     const handleDelete = async (_id) => {
         try {
-            const response = await axios.delete(`http://localhost:5000/${name}/${_id}`);
+            const response = await axios.delete(`http://34.229.93.25:5000/${name}/${_id}`);
             toast.success(`Successfully deleted ${name} details`);
             if (name === "donations") {
                 setTimeout(() => {

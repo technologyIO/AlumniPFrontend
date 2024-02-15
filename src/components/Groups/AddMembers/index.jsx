@@ -14,7 +14,7 @@ export const AddMembers = () => {
   useEffect(() => {
     const fetchMembers = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/groups/${_id}/members`);
+        const response = await fetch(`http://34.229.93.25:5000/groups/${_id}/members`);
         const data = await response.json();
         if (response.ok) {
           setMembers(data.members);

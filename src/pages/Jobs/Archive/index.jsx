@@ -39,7 +39,7 @@ export const Archive = ({ userId, id, jobTitle, title, titleS, description, sala
         const handleArchive = async () => {
             try {
                 console.log('id', id)
-                const response = await fetch(`http://localhost:5000/${title}/${id}`, {
+                const response = await fetch(`http://34.229.93.25:5000/${title}/${id}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
@@ -92,7 +92,7 @@ export const Archive = ({ userId, id, jobTitle, title, titleS, description, sala
     const handleDelete = async () => {
         try {
             console.log('id', id)
-            const response = await fetch(`http://localhost:5000/${title}/${id}`, {
+            const response = await fetch(`http://34.229.93.25:5000/${title}/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -127,7 +127,7 @@ export const Archive = ({ userId, id, jobTitle, title, titleS, description, sala
                         return (
                             <img
                                 key={index}
-                                src={`http://localhost:5000/uploads/${attachment}`}
+                                src={`http://34.229.93.25:5000/uploads/${attachment}`}
                                 alt=""
                                 className="src"
                             />

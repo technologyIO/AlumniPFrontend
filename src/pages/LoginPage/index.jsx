@@ -22,7 +22,7 @@ const LoginPage = ({ handleLogin }) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5000/alumni/login', {
+      const response = await fetch('http://34.229.93.25:5000/alumni/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

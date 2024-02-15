@@ -66,7 +66,7 @@ function MyVerticallyCenteredModal(props) {
       picture
     };
 
-    fetch("http://localhost:5000/events/createEvent", {
+    fetch("http://34.229.93.25:5000/events/createEvent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -111,7 +111,7 @@ function MyVerticallyCenteredModal(props) {
 
       const jsonEventData = JSON.stringify(updatedEvent);
 
-      fetch(`http://localhost:5000/events/${eventId}`, {
+      fetch(`http://34.229.93.25:5000/events/${eventId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -321,7 +321,7 @@ function Events() {
   }, []);
 
   const fetchEvents = () => {
-    fetch("http://localhost:5000/events")
+    fetch("http://34.229.93.25:5000/events")
       .then((response) => response.json())
       .then((data) => {
         // Convert start and end dates to JavaScript Date objects
@@ -365,7 +365,7 @@ function Events() {
   const handleDeleteEvent = (e) => {
     const eventId = selectedEvent._id;
     console.log("id", eventId);
-    fetch(`http://localhost:5000/events/${eventId}`, {
+    fetch(`http://34.229.93.25:5000/events/${eventId}`, {
       method: 'DELETE',
     })
       .then(() => {

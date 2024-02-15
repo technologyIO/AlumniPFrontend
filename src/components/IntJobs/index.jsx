@@ -56,7 +56,7 @@ const IntJobs = (props) => {
 
     // const getData = async () => {
     //     try {
-    //         const response = await axios.get(`http://localhost:5000/${title}/`)
+    //         const response = await axios.get(`http://34.229.93.25:5000/${title}/`)
     //         if (title === 'Jobs') {
     //             const filteredJobs = response.data.filter(job => job.archive === false);
     //             const filteredArchivedJobs = response.data.filter(job => job.archive === true);
@@ -209,7 +209,7 @@ const IntJobs = (props) => {
                 console.log('form data', formData)
 
 
-                const response = await fetch(`http://localhost:5000/${title}/create`, {
+                const response = await fetch(`http://34.229.93.25:5000/${title}/create`, {
                     method: 'POST',
                     body: formData,
                 });

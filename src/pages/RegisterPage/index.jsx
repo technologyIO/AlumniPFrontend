@@ -29,7 +29,7 @@ const RegisterPage = () => {
     e.preventDefault();
     try {
       console.log('formData', formData);
-      const response = await axios.post('http://localhost:5000/alumni/register', formData);
+      const response = await axios.post('http://34.229.93.25:5000/alumni/register', formData);
       
       console.log('Registration successful!', response.data);
       toast.success("User Registered successfully!");

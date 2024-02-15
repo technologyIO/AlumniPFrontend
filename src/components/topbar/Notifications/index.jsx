@@ -22,7 +22,7 @@ export const Notifications = () => {
     console.log('not',notificationId)
     setLoading(true);
     try {
-      const response = await axios.put(`http://localhost:5000/groups/members/${groupId}`, {
+      const response = await axios.put(`http://34.229.93.25:5000/groups/members/${groupId}`, {
         userId: memberId,
         notificationId: notificationId
       });
@@ -43,7 +43,7 @@ export const Notifications = () => {
   const getRequest = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`http://localhost:5000/groups/requests/req`);
+      const response = await axios.get(`http://34.229.93.25:5000/groups/requests/req`);
       setNotificationList(response.data);
       setLoading(false);
     } catch (error) {

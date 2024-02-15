@@ -20,7 +20,7 @@ const JoinedGroups = () => {
     }
     try {
       const response = await axios.get(
-        `http://localhost:5000/groups/joined?page=${page}&size=${LIMIT}&userId=${profile._id}`
+        `http://34.229.93.25:5000/groups/joined?page=${page}&size=${LIMIT}&userId=${profile._id}`
       );
       const postsData = response.data.records;
       setGroups((prevItems) => [...prevItems, ...postsData]);

@@ -54,7 +54,7 @@ function Post({ userId,postId, profilePic, username, text, timestamp, image, vid
 
   const fetchComments = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/posts/${postId}/comments`);
+      const response = await axios.get(`http://34.229.93.25:5000/posts/${postId}/comments`);
       const fetchedComments = response.data.comments;
       setComments(fetchedComments);
     } catch (error) {
@@ -68,7 +68,7 @@ function Post({ userId,postId, profilePic, username, text, timestamp, image, vid
     try {
 
       const response = await axios.patch(
-        `http://localhost:5000/posts/${postId}/likes`,
+        `http://34.229.93.25:5000/posts/${postId}/likes`,
         {
           userId: loggedInUserId,
           userName: username, 
@@ -91,7 +91,7 @@ function Post({ userId,postId, profilePic, username, text, timestamp, image, vid
   const handleDeletePost = async (userId) => {
     if( userId === profile._id){
     try {
-      await axios.delete(`http://localhost:5000/${entityType}/${postId}`);
+      await axios.delete(`http://34.229.93.25:5000/${entityType}/${postId}`);
       onDeletePost(postId); 
     } catch (error) {
       console.error('Error deleting post:', error);

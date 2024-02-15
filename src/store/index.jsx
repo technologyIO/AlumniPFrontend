@@ -8,7 +8,7 @@ const savedUser = JSON.parse(localStorage.getItem("user"));
 
 export const fetchMembers = async () => {
   try {
-    const response = await axios.get("http://localhost:5000/alumni/all");
+    const response = await axios.get("http://34.229.93.25:5000/alumni/all");
     console.log("settings data", response.data);
     return response.data;
   } catch (error) {
@@ -19,7 +19,7 @@ export const fetchMembers = async () => {
 
 export const fetchSettings = async () => {
   try {
-    const response = await axios.get("http://localhost:5000/settings/");
+    const response = await axios.get("http://34.229.93.25:5000/settings/");
     return response.data;
   } catch (error) {
     console.error("Error fetching settings:", error);
@@ -77,7 +77,7 @@ const accessToken = jwtToken;
       Authorization: `Bearer ${accessToken}`,
     };
     const response = await axios.get(
-      `http://localhost:5000/alumni/${userId}`,
+      `http://34.229.93.25:5000/alumni/${userId}`,
       { headers }
     );
     console.log("profile data", response.data);

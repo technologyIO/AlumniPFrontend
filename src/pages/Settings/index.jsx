@@ -77,7 +77,7 @@ const Settings = () => {
             };
 
             const response = await axios.post(
-                "http://localhost:5000/settings/createSetting",
+                "http://34.229.93.25:5000/settings/createSetting",
                 body,
                 { headers }
             );

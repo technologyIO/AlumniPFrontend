@@ -20,7 +20,7 @@ const AllGroups = () => {
         }
         try {
             const response = await axios.get(
-                `http://localhost:5000/groups?page=${page}&size=${LIMIT}`,
+                `http://34.229.93.25:5000/groups?page=${page}&size=${LIMIT}`,
                 { userId: profile._id },
             );
             const postsData = response.data.records;

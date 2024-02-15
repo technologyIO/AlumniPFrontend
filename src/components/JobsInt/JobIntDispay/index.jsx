@@ -25,7 +25,7 @@ const JobIntDisplay = ({picture,jobId,jobTitle,location,salaryMin,salaryMax,curr
     // };
     // const profile = useSelector((state) => state.profile);
     // const fetchDonationPost = async () => {
-    //     const response = await axios.get(`http://localhost:5000/${title}/${_id}`)
+    //     const response = await axios.get(`http://34.229.93.25:5000/${title}/${_id}`)
     //     const data = response.data;
     //     setJobs(data);
     //     setLoading(false)

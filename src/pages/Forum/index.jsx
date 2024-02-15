@@ -14,7 +14,7 @@ const Forum = () => {
   const icon = <MdForum style={{ color: 'rgb(233, 172, 138)' }} />;
   useEffect(() => {
     setLoading(true)
-    fetch('http://localhost:5000/forums')
+    fetch('http://34.229.93.25:5000/forums')
       .then((response) => response.json())
       .then((data) => {
         // Update the state with the fetched data

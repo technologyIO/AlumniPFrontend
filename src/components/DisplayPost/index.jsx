@@ -21,7 +21,7 @@ const DisplayPost = ({ title, groups, loading,joined }) => {
 
   const getRequest = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/groups/requests/req`);
+      const response = await axios.get(`http://34.229.93.25:5000/groups/requests/req`);
       setNotificationList(response.data);
 
     } catch (error) {
@@ -60,7 +60,7 @@ const DisplayPost = ({ title, groups, loading,joined }) => {
       };
       setRequestStatus('Loading...');
       try {
-        const response = await axios.post(`http://localhost:5000/groups/createRequest`, body);
+        const response = await axios.post(`http://34.229.93.25:5000/groups/createRequest`, body);
         console.log('body', response.data);
         if (response.data.requested === true) setRequestStatus('Requested');
         else setRequestStatus('Request');

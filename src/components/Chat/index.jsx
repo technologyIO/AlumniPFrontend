@@ -126,7 +126,7 @@ const Chat = () => {
       // const parts = file.name.split('.');
       // const ext = parts[parts.length -1];
       // const filename = Date.now() + '.' +ext;
-      axios.get(`http://localhost:5000/messages/${selectedUserId}`, {
+      axios.get(`http://34.229.93.25:5000/messages/${selectedUserId}`, {
         headers: {
           Authorization: `Bearer ${cookie.token}`,
         },
@@ -182,7 +182,7 @@ const Chat = () => {
 
 
   useEffect(() => {
-    axios.get('http://localhost:5000/alumni/all/allAlumni', {
+    axios.get('http://34.229.93.25:5000/alumni/all/allAlumni', {
       headers: {
         Authorization: `Bearer ${cookie.token}`,
       },
@@ -204,7 +204,7 @@ const Chat = () => {
     console.log('selected user id in useEffect',selectedUserId)
     if (selectedUserId) {
 
-      axios.get(`http://localhost:5000/messages/${selectedUserId}`, {
+      axios.get(`http://34.229.93.25:5000/messages/${selectedUserId}`, {
         headers: {
           Authorization: `Bearer ${cookie.token}`,
         },
@@ -285,7 +285,7 @@ const Chat = () => {
                       {message.file && (
                         <div style={{fontSize: '14px',display: 'flex', alignItems: 'center'}}>
                           <AiOutlinePaperClip/>
-                          <a href={`http://localhost:5000/uploads/${message.file}`} target="_blank" rel="noopener noreferrer">{message.file}</a>
+                          <a href={`http://34.229.93.25:5000/uploads/${message.file}`} target="_blank" rel="noopener noreferrer">{message.file}</a>
                       </div>
                       )
                       }

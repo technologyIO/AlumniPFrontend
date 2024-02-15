@@ -38,7 +38,7 @@ const Profilecard = ({ member, name,addButton,groupMembers,owner }) => {
     const checkFollowingStatus = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/alumni/${profile._id}/following/all`
+          `http://34.229.93.25:5000/alumni/${profile._id}/following/all`
         );
         const followingDetails = response.data.followingDetails;
         const isUserFollowing = followingDetails.some(
@@ -58,13 +58,13 @@ const Profilecard = ({ member, name,addButton,groupMembers,owner }) => {
     setLoading(true);
     try {
       if (!isFollowing) {
-        await axios.patch(`http://localhost:5000/alumni/${member._id}/follow`, {
+        await axios.patch(`http://34.229.93.25:5000/alumni/${member._id}/follow`, {
           userId: profile._id,
         });
         setIsFollowing(true);
         setLoading(false); 
       } else {
-        await axios.patch(`http://localhost:5000/alumni/${member._id}/follow`, {
+        await axios.patch(`http://34.229.93.25:5000/alumni/${member._id}/follow`, {
           userId: profile._id,
         });
         setIsFollowing(false);
@@ -78,7 +78,7 @@ const Profilecard = ({ member, name,addButton,groupMembers,owner }) => {
   const handleAddMember = async (groupId, memberId) => {
     setLoading(true)
     try {
-      const response = await axios.put(`http://localhost:5000/groups/members/${groupId}`, {
+      const response = await axios.put(`http://34.229.93.25:5000/groups/members/${groupId}`, {
         userId: memberId,
       });
   

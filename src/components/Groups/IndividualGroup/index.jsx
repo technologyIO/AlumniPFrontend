@@ -29,7 +29,7 @@ const IndividualGroup = () => {
     const getGroup = async () => {
         try {
             const response = await axios.get(
-                `http://localhost:5000/groups/${_id}`
+                `http://34.229.93.25:5000/groups/${_id}`
             );
             setGroup([response.data])
         } catch (error) {

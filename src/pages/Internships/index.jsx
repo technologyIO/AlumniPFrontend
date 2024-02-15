@@ -22,7 +22,7 @@ const Internships = () => {
 
     const getData = async () => {
         try {
-            const response = await axios.get(`http://localhost:5000/${title}/`)
+            const response = await axios.get(`http://34.229.93.25:5000/${title}/`)
             if (title === 'Jobs') {
                 const filteredJobs = response.data.filter(job => job.archive === false);
                 const filteredArchivedJobs = response.data.filter(job => job.archive === true);

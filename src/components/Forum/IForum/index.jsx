@@ -23,7 +23,7 @@ const IForum = () => {
 
   const refreshComments = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/forums/${id}`);
+      const response = await axios.get(`http://34.229.93.25:5000/forums/${id}`);
       setForum(response.data);
     } catch (error) {
       console.error('Error fetching forum data:', error);
@@ -38,7 +38,7 @@ const IForum = () => {
   const handleDeletePost = async (forumId) => {
 
     try {
-      await axios.delete(`http://localhost:5000/forums/${forumId}`);
+      await axios.delete(`http://34.229.93.25:5000/forums/${forumId}`);
       toast.success('Deleted successfully!');
       navigateTo('/forums')
     } catch (error) {

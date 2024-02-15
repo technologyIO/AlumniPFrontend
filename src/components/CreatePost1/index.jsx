@@ -105,7 +105,7 @@ const CreatePost1 = ({ name, onNewPost }) => {
 
       try {
         const response = await axios.post(
-          `http://localhost:5000/posts/create`,
+          `http://34.229.93.25:5000/posts/create`,
           formDataObject,
 
         );
@@ -124,7 +124,7 @@ const CreatePost1 = ({ name, onNewPost }) => {
     try {
       console.log("request body", formDataObject);
       const response = await axios.post(
-        `http://localhost:5000/posts/create?folder=${folderName}`,
+        `http://34.229.93.25:5000/posts/create?folder=${folderName}`,
         formDataObject,
         {
           headers: {
@@ -148,7 +148,7 @@ const CreatePost1 = ({ name, onNewPost }) => {
     try {
       console.log("request body", formDataObject);
       const response = await axios.post(
-        `http://localhost:5000/posts/create`,
+        `http://34.229.93.25:5000/posts/create`,
         formDataObject,
 
       );
