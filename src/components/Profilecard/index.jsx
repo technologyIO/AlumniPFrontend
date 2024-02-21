@@ -24,7 +24,7 @@ const Profilecard = ({ member, name,addButton,groupMembers,owner }) => {
   const profile = useSelector((state)=> state.profile)
 
 
-  const isGroupURL = window.location.href.includes("http://localhost:3000/groups/");
+  const isGroupURL = window.location.href.includes("http://34.229.93.25:3000/groups/");
 
   useEffect(() => {
     if (isGroupURL) {

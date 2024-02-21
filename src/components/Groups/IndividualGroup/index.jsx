@@ -14,6 +14,7 @@ import { AddMembers } from "../AddMembers";
 import { useSelector } from "react-redux";
 import { FcInvite } from "react-icons/fc";
 import { GroupInvite } from "../GroupInvite";
+import { JoinGroup } from "../JoinGroup";
 
 const IndividualGroup = () => {
     const { _id } = useParams();
@@ -58,7 +59,7 @@ const IndividualGroup = () => {
                     </div>
                     <div className="ig-lower-container">
                         <Routes>
-                            <Route path="/" element={<div style={{ width: '65%' }}>
+                            <Route exact path="/" element={<div style={{ width: '65%' }}>
                                 <SocialMediaPost style={{ marginLeft: '0px' }} showCreatePost={true} />
                             </div>} />
                             <Route path="/add" element={<div style={{ width: '65%' }}>
@@ -66,6 +67,9 @@ const IndividualGroup = () => {
                             </div>} />
                             <Route path="/groupInvite" element={<div style={{ width: '65%' }}>
                                 <GroupInvite />
+                            </div>} />
+                            <Route path="/invite" element={<div style={{ width: '65%' }}>
+                                <JoinGroup />
                             </div>} />
                         </Routes>
                         <div style={{ width: '35%' }}>
@@ -80,7 +84,7 @@ const IndividualGroup = () => {
                                         <li style={{ display: 'flex', alignItems: 'center', gap: '10px', paddingBottom: '10px' }}><BsGlobeAmericas style={{ color: '#7a7a7a' }} />{groupItem.groupType}</li>
                                         <li style={{ display: 'flex', alignItems: 'center', gap: '10px', paddingBottom: '10px' }}><BsFillTagFill style={{ color: '#7a7a7a' }} />{groupItem.category}</li>
                                         {(profile._id === groupItem.userId || admin) && <Link to={`/groups/${_id}/add`} style={{ color: 'black', textDecoration: 'none' }}>
-                                            <li style={{ display: 'flex', alignItems: 'center', gap: '10px', paddingBottom: '10px' }}><IoIosAdd style={{ color: '#7a7a7a', width: '20px', height: '20px' }} />Add members to group</li>
+                                            <li style={{ display: 'flex', alignItems: 'center', gap: '10px', paddingBottom: '10px' }}><IoIosAdd style={{ color: '#7a7a7a', width: '20px', height: '20px' }} />Add/Remove members to group</li>
 
                                         </Link>}
                                         {(profile._id === groupItem.userId || admin) && <Link to={`/groups/${_id}/groupInvite`} style={{ color: 'black', textDecoration: 'none' }}>

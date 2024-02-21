@@ -1,6 +1,6 @@
 import './topbar.css'
 import { FaPlus, FaHome, FaBell } from 'react-icons/fa';
-
+import picture from '../../images/profilepic.jpg'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 import { BiSolidBriefcase } from 'react-icons/bi';
@@ -26,7 +26,7 @@ const TopBar = ({ handleLogout }) => {
     const [showProfileOptions, setShowProfileOptions] = useState(false);
     const [showNotifications, setShowNotifications] = useState(false);
     const [showMessages, setShowMessages] = useState(false);
-    const [cookie, setCookie, removeCookie] = useCookies(['access_token']);
+    const [cookie, setCookie, removeCookie] = useCookies('token');
     const navigateTo = useNavigate();
     const [loading, setLoading] = useState(true);
     const profile = useSelector((state) => state.profile);
@@ -83,10 +83,13 @@ const TopBar = ({ handleLogout }) => {
         setShowPopover(popoverVisibility);
     }
     const logout = () => {
+        console.log('logout',cookie.token)
         removeCookie('token');
+        
         toast.success("Logged out successfully!");
-        window.location.href = "/login";
-        //handleLogout();
+        handleLogout();
+        window.location.href = "/";
+        
     };
 
     return (
@@ -159,7 +162,7 @@ const TopBar = ({ handleLogout }) => {
                                 <Notifications />
                             </div>
                         )}
-                        <img src={profile.profilePicture} alt='Profile' width='40px' height='40px' ref={profileOptionsRef} style={{ borderRadius: '50%', cursor: 'pointer' }} onClick={() => {
+                        <img src={profile.profilePicture || picture} alt='Profile' width='40px' height='40px' ref={profileOptionsRef} style={{ borderRadius: '50%', cursor: 'pointer' }} onClick={() => {
                             console.log('clicked image')
                             setShowMessages(false);
                             setShowNotifications(false);

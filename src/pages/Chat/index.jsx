@@ -10,6 +10,7 @@ import { useCookies } from "react-cookie";
 import Contact from "./Contact";
 import { useNavigate } from "react-router-dom";
 import { AiOutlinePaperClip } from "react-icons/ai";
+import { BASE_URL } from "../../config";
 
 const Chat = () => {
 
@@ -25,38 +26,33 @@ const Chat = () => {
   const divUnderMessages = useRef();
   const [cookie, setCookie] = useCookies('token');
   const navigateTo = useNavigate();
+  console.log('base url',BASE_URL);
 
 
 
   useEffect(() => {
     connectToWs();
+  
+    return () => {
+      console.log('Unmounting Chat component...');
+      disconnectFromWs();
+    };
   }, [selectedUserId]);
-
+  
   const connectToWs = () => {
-    const ws = new WebSocket('ws://localhost:5000');
+    const ws = new WebSocket('ws://34.229.93.25:5000');
     setWs(ws);
     ws.addEventListener('message', handleMessage);
-    // ws.addEventListener('close', () => {
-    //   setTimeout(() => {
-    //     console.log('Disconnected. Trying to reconnect.');
-    //     connectToWs();
-    //   }, 1000);
-    // });
-  }
-
+  };
+  
   const disconnectFromWs = () => {
+    console.log('Disconnecting from WebSocket server...');
     if (ws) {
       ws.close();
       setWs(null);
       console.log('WebSocket connection closed');
     }
   };
-
-  useEffect(() => {
-    return () => {
-      disconnectFromWs();
-    };
-  }, []);
 
   // const Lout = () => {
     

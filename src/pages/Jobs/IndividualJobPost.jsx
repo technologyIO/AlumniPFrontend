@@ -40,6 +40,8 @@ const IndividualJobPost = () => {
     if (profile.profileLevel === 0) {
         admin = true;
     }
+
+  
     const fetchAppliedUserIds = async () => {
         const response = await axios.get(`http://34.229.93.25:5000/${title}/appliedCandidates/${_id}`)
         const data = response.data;
@@ -49,9 +51,12 @@ const IndividualJobPost = () => {
 
 
 
+
     useEffect(() => {
         fetchDonationPost();
+        if(title==='Jobs'){
         fetchAppliedUserIds();
+        }
     }, [_id])
     const isApplied = appliedCandidates.includes(profile._id);
 

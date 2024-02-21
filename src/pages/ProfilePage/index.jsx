@@ -29,6 +29,7 @@ import Form from 'react-bootstrap/Form';
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { IoMdClose } from "react-icons/io";
 import { toast } from "react-toastify";
+import profilePicture from '../../images/profilepic.jpg'
 
 const ProfilePage = () => {
   const [cookie, setCookie] = useCookies(["token"]);
@@ -353,10 +354,10 @@ const ProfilePage = () => {
           }}
         >
           <div>
-            <img src={profile.profilePicture}></img>
+            <img src={profile.profilePicture || profilePicture}></img>
           </div>
           <div style={{ paddingBottom: "1.5em" }}>
-            <h2 style={{ color: "white" }}>{profile.firstName}<HiMiniCheckBadge style={{ color: '#51a8f5' }} /></h2>
+            <h2 style={{ color: "black" }}>{profile.firstName}<HiMiniCheckBadge style={{ color: '#51a8f5' }} /></h2>
             <div style={{ display: "flex", gap: "0.5em" }}>
               <Link to='/profile/profile-settings'>
                 <button >

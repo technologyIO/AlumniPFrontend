@@ -33,7 +33,7 @@ const RegisterPage = () => {
       
       console.log('Registration successful!', response.data);
       toast.success("User Registered successfully!");
-      navigateTo('/login');
+      navigateTo('/');
       
       
     } catch (error) {

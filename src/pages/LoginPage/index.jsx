@@ -44,7 +44,7 @@ const LoginPage = ({ handleLogin }) => {
         dispatch(setAdmin(true));
       }
       toast.success("Logged in successfully!");
-      navigateTo("/");
+      //navigateTo("/");
       } else {
         const errorData = await response.json();
         console.error('Login failed',errorData);

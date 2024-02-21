@@ -7,7 +7,8 @@ export const GroupInvite = () => {
   const groupId = _id
 
   // Construct the group invite link
-  const groupInviteLink = `${window.location.origin}/group/${groupId}/invite`;
+  const groupInviteLink = `${window.location.origin}/groups/${groupId}/invite`;
+  console.log('group invite link',groupInviteLink)
 
   return (
     <div>

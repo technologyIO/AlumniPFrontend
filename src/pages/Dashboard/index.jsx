@@ -43,7 +43,7 @@ const Dashboard = ({handleLogout}) => {
           <Route path="/groups/*" element={<Groups />} />
           {/* <Route path="/groups/:_id/*" element={<IndividualGroup />} /> */}
           <Route
-            path="/"
+            path="/*"
             element={
               <div
                 style={{

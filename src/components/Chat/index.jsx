@@ -51,33 +51,36 @@ const Chat = () => {
 
   useEffect(() => {
     connectToWs();
+  
+    return () => {
+      disconnectFromWs();
+    };
   }, [selectedUserId]);
-
+  
   const connectToWs = () => {
+    console.log("Connecting to WS")
+    if(!ws){
     const ws = new WebSocket('ws://localhost:5000');
     setWs(ws);
     ws.addEventListener('message', handleMessage);
-    // ws.addEventListener('close', () => {
-    //   setTimeout(() => {
-    //     console.log('Disconnected. Trying to reconnect.');
-    //     connectToWs();
-    //   }, 1000);
-    // });
+    }
+    return;
+  };
+  console.log('ws creation',ws)
+  if(ws){
+    console.log('ws is present',ws)
   }
-
+  
   const disconnectFromWs = () => {
+    console.log("Disconnecting from WS");
+    console.log('ws',ws)
     if (ws) {
+      console.log('ws present for deletion')
       ws.close();
       setWs(null);
       console.log('WebSocket connection closed');
     }
   };
-
-  useEffect(() => {
-    return () => {
-      disconnectFromWs();
-    };
-  }, []);
 
   // const Lout = () => {
 
@@ -126,7 +129,7 @@ const Chat = () => {
       // const parts = file.name.split('.');
       // const ext = parts[parts.length -1];
       // const filename = Date.now() + '.' +ext;
-      axios.get(`http://34.229.93.25:5000/messages/${selectedUserId}`, {
+      axios.get(`http://34.229.93.25:3543/messages/${selectedUserId}`, {
         headers: {
           Authorization: `Bearer ${cookie.token}`,
         },

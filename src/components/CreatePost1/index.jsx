@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../CreatePost/socialWall.css';
+import picture from '../../images/profilepic.jpg'
 import { FaLocationArrow } from 'react-icons/fa';
 import profilepic from '../../images/profilepic.jpg';
 import { GrDocumentText } from 'react-icons/gr';
@@ -171,7 +172,7 @@ const CreatePost1 = ({ name, onNewPost }) => {
       <div className={`card ${isExpanded ? 'expanded' : ''}`}>
         <div className="card-header" style={{ backgroundColor: 'white' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <img src={profile.profilePicture} alt='Profile' width='40px' height='40px' style={{ borderRadius: '50%' }} />
+            <img src={profile.profilePicture || picture} alt='Profile' width='40px' height='40px' style={{ borderRadius: '50%' }} />
             <p style={{ marginBottom: '0rem', fontWeight: '500' }}>{profile.firstName}</p>
           </div>
           <input

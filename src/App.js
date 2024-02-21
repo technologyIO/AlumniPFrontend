@@ -2,7 +2,7 @@ import LeftSidebar from "./components/left-sidebar";
 import TopBar from "./components/topbar";
 import SocialMediaPost from "./components/Social-wall-post";
 import SideWidgets from "./components/SideWidgets";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import Groups from "./pages/Groups";
 import Donations from "./pages/Donations";
 import Sponsorships from "./pages/Sponsorships";
@@ -18,9 +18,12 @@ import { useState, useEffect } from "react";
 import React from "react";
 import Dashboard from "./pages/Dashboard";
 import { useCookies } from "react-cookie";
+import { JoinGroup } from "./components/Groups/JoinGroup";
+import IndividualGroup from "./components/Groups/IndividualGroup";
+import { GiConsoleController } from "react-icons/gi";
 
 function App() {
-  const [cookies] = useCookies(["token"]);
+  const [cookies, removeCookie] = useCookies(["token"]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -31,23 +34,29 @@ function App() {
       setIsLoggedIn(false);
     }
     setLoading(false);
-  }, [cookies.access_token]);
+  }, [cookies.token]);
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLogin = () => {
-        setIsLoggedIn(true);
+    setIsLoggedIn(true);
   };
 
   if (loading) {
-    
     return <div>Loading...</div>;
   }
 
   const handleLogout = () => {
+    if (cookies.token) {
+      console.log("Cookie exists, removing...");
+      document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+      console.log("Cookie removed");
+    }
     setIsLoggedIn(false);
     console.log("handle logout");
   };
+  
+  
 
   return (
     <div className="App">
@@ -57,12 +66,23 @@ function App() {
           <Routes>
             <Route path="/login" element={<LoginPage handleLogin={handleLogin} />} />
             <Route path="/register" element={<RegisterPage />} />
+            {console.log('logged in',isLoggedIn)}
             {!isLoggedIn ? (
               <Route path="*" element={<LoginPage handleLogin={handleLogin} />} />
             ) : (
-              <Route path="*" element={<Dashboard handleLogout={handleLogout} />} />
+              <>
+                <Route path="/*" element={<Dashboard handleLogout={handleLogout} />} />
+                <Route path="/groups/:_id/invite/*" element={
+                  <div>
+                    <TopBar handleLogout={handleLogout}/>
+                    <div style={{ width: "100%", display: "flex", flexDirection: "row" }}>
+                      <LeftSidebar />
+                      <JoinGroup/>
+                    </div>
+                  </div>
+                } />
+              </>
             )}
-            
           </Routes>
         </Router>
       </div>
